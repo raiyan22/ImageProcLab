@@ -1,0 +1,6 @@
+np.r_[centroids, array[random.randint(0,m-1)].reshape(1,2)]  #returns concatenated arrays with random values
+
+np.array() #converts or creates a nparray
+
+
+plt.scatter(X[i,0],X[i,1], color = color[label[i]]) #scatters x[i,0],x[i,1] on the graph

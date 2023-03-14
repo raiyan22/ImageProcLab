@@ -1,0 +1,24 @@
+label = []
+    # Assign clusters to points.
+    for i in range(m):
+        distance = [euclid_distance(X[i],centroids[k]) for k in range(K)]
+        
+        min_index = np.argmin(distance)
+        label.append(min_index)
+    
+    label = np.array(label)
+    # print(label.shape, label)
+    old_centroids = centroids.copy()
+    
+    # Compute mean and update.
+    for k in range(K):
+        k_index = np.where(label==k)[0]
+        p = X[k_index]
+        # print('pbfndgfxg', k_index.shape, p.shape, p)
+        mean_centroid = np.mean(p,axis=0)
+        centroids[k] = mean_centroid
+    #plot graph in every 5 iterations
+    if(it%4==0):
+        plot(m,X,label,centroids)
+        
+    convergence = [np.abs(old_centroids-centroids) for k in range(K)]
